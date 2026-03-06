@@ -1,0 +1,24 @@
+{
+  "name": "@cornwall-ponds-gemini/auth",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {},
+  "dependencies": {
+    "@cornwall-ponds-gemini/db": "workspace:*",
+    "@cornwall-ponds-gemini/env": "workspace:*",
+    "better-auth": "catalog:",
+    "dotenv": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@cornwall-ponds-gemini/config": "workspace:*",
+    "typescript": "catalog:"
+  }
+}

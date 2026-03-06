@@ -1,0 +1,25 @@
+{
+  "name": "cornwall-ponds-gemini",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:22",
+  "forwardPorts": [8787, 4321],
+  "portsAttributes": {
+    "8787": {
+      "label": "Hono API",
+      "onAutoForward": "notify"
+    },
+    "4321": {
+      "label": "Astro",
+      "onAutoForward": "notify"
+    }
+  },
+  "postCreateCommand": "npm install -g bun wrangler",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "astro-build.astro-vscode",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint"
+      ]
+    }
+  }
+}

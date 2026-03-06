@@ -19,7 +19,11 @@
   "backend": "hono",
   "runtime": "workers",
   "frontend": ["astro"],
-  "addons": ["turborepo"],
+  "addons": [
+		"turborepo",
+		"mcp",
+		"skills"
+	],
   "examples": [],
   "auth": "better-auth",
   "payments": "none",

@@ -4,16 +4,20 @@ import { Worker } from "alchemy/cloudflare";
 import { D1Database } from "alchemy/cloudflare";
 import { config } from "dotenv";
 
+// 1. Initialise the environment and load secrets
 config({ path: "./.env" });
 config({ path: "../../apps/web/.env" });
 config({ path: "../../apps/server/.env" });
 
+// 2. Initialize the Alchemy app
 const app = await alchemy("cornwall-ponds-gemini");
 
+// 3. Provision a Cloudflare D1 Serverless Database and connect it to our Prisma/Drizzle migrations
 const db = await D1Database("database", {
   migrationsDir: "../../packages/db/src/migrations",
 });
 
+// 4. Provision the Astro website (Frontend) and bind the server URL so the frontend knows where the API is
 export const web = await Astro("web", {
   cwd: "../../apps/web",
   bindings: {
@@ -21,6 +25,7 @@ export const web = await Astro("web", {
   },
 });
 
+// 5. Provision the Hono API (Backend) as a Cloudflare Worker, and grant it access to the D1 Database and secret Auth variables
 export const server = await Worker("server", {
   cwd: "../../apps/server",
   entrypoint: "src/index.ts",

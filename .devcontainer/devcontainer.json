@@ -1,24 +1,35 @@
 {
   "name": "cornwall-ponds-gemini",
   "image": "mcr.microsoft.com/devcontainers/typescript-node:22",
-  "forwardPorts": [8787, 4321],
-  "portsAttributes": {
-    "8787": {
-      "label": "Hono API",
-      "onAutoForward": "notify"
-    },
-    "4321": {
-      "label": "Astro",
-      "onAutoForward": "notify"
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/common-utils:1": {
+      "configureZshAsDefaultShell": true
     }
   },
-  "postCreateCommand": "npm install -g bun wrangler",
+  "forwardPorts": [8787, 4321],
+  "portsAttributes": {
+    "8787": { "label": "Hono API", "onAutoForward": "notify" },
+    "4321": { "label": "Astro Dev", "onAutoForward": "notify" },
+    "8888": { "label": "Cloudflare Inspector", "onAutoForward": "ignore" }
+  },
+  // Ensure we use a persistent volume for the wrangler state (D1/KV/R2 local data)
+  "mounts": [
+    "source=${localWorkspaceFolderBasename}-wrangler-state,target=${containerWorkspaceFolder}/.wrangler/state,type=volume"
+  ],
+  "postCreateCommand": "npm install -g bun wrangler && bun install",
   "customizations": {
     "vscode": {
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      },
       "extensions": [
         "astro-build.astro-vscode",
         "esbenp.prettier-vscode",
-        "dbaeumer.vscode-eslint"
+        "dbaeumer.vscode-eslint",
+        "cloudflare.cloudflare-workers-bindings-extension", // Provides better intellisense for bindings
+        "irongeek.vscode-env" // Helpful for managing .dev.vars files
       ]
     }
   }

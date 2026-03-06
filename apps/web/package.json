@@ -26,6 +26,7 @@
     "@cornwall-ponds-gemini/config": "workspace:*",
     "@tailwindcss/vite": "^4.1.18",
     "alchemy": "catalog:",
+    "eslint-plugin-astro": "^1.6.0",
     "tailwindcss": "^4.1.18",
     "typescript": "catalog:"
   }

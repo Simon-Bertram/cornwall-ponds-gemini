@@ -17,7 +17,7 @@
   "mounts": [
     "source=${localWorkspaceFolderBasename}-wrangler-state,target=${containerWorkspaceFolder}/.wrangler/state,type=volume"
   ],
-  "postCreateCommand": "npm install -g bun wrangler && bun install",
+  "postCreateCommand": "bun install",
   "customizations": {
     "vscode": {
       "settings": {

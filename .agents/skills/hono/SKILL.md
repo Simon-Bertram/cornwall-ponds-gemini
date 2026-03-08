@@ -9,16 +9,16 @@ Develop Hono applications efficiently using Hono CLI (`@hono/cli`).
 
 ## Setup
 
-You can use Hono CLI without global installation via npx:
+You can use Hono CLI without global installation via bunx:
 
 ```bash
-npx @hono/cli <command>
+bunx @hono/cli <command>
 ```
 
 Or install globally (optional):
 
 ```bash
-npm install -g @hono/cli
+bun add -g @hono/cli
 ```
 
 ## Commands for AI

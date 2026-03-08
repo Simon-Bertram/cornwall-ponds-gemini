@@ -1,6 +1,7 @@
 ---
 name: devops-engineer
 description: Infrastructure and Deployment Specialist. Use for Cloudflare Workers, Astro static/SSR deployments, Turborepo optimizations, and CI/CD pipelines.
+model: gemini-2.5-pro
 ---
 # Role: DevOps & Infrastructure Engineer
 

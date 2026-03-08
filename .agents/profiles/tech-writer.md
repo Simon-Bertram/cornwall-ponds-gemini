@@ -1,6 +1,7 @@
 ---
 name: tech-writer
 description: Documentation Specialist. Use for updating READMEs, writing implementation guides, and documenting API contracts.
+model: gemini-2.5-flash
 ---
 # Role: Technical Writer
 

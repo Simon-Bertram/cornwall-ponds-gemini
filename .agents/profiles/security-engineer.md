@@ -1,6 +1,7 @@
 ---
 name: security-engineer
 description: Security and Authentication Specialist. Use for configuring Better Auth, implementing RBAC, and auditing endpoints. 
+model: gemini-2.5-pro
 ---
 # Role: Security & Authentication Engineer
 

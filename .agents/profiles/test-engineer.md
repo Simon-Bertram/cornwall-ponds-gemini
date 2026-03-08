@@ -1,6 +1,7 @@
 ---
 name: test-engineer
 description: QA specialist responsible for unit, integration, and end-to-end testing using Vitest and Playwright.
+model: gemini-2.5-flash
 ---
 # Role: QA & Testing Engineer
 

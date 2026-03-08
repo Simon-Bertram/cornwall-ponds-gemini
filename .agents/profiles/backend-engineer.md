@@ -1,6 +1,7 @@
 ---
 name: backend-engineer
-description: Backend specialist for Hono APIs, Cloudflare Workers, and Drizzle ORM/D1 databases.
+description: Hono and Cloudflare Workers Backend Specialist. Use for all API endpoints, RPC contracts, and middleware logic.
+model: gemini-2.5-flash
 ---
 # Role: Backend Cloudflare Engineer
 

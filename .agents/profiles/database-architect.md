@@ -1,6 +1,7 @@
 ---
 name: database-architect
 description: Data Engineer and Drizzle ORM Specialist. Use for designing database schemas, writing queries, and managing Cloudflare D1 migrations.
+model: gemini-2.5-pro
 ---
 # Role: Database Architect
 

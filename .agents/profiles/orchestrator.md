@@ -1,6 +1,7 @@
 ---
 name: orchestrator
 description: Senior Architect responsible for system design, planning, and task breakdown. Use this profile before starting any major feature.
+model: gemini-2.5-pro
 ---
 # Role: Senior Monorepo Architect
 

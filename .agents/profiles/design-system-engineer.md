@@ -1,6 +1,7 @@
 ---
 name: design-system-engineer
 description: Design System and UI Specialist. Use for Tailwind configuration, DaisyUI theming, and building reusable Shadcn UI components.
+model: gemini-2.5-flash
 ---
 # Role: Design System Engineer
 

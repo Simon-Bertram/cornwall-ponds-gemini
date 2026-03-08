@@ -1,6 +1,7 @@
 ---
 name: frontend-engineer
-description: Frontend specialist for Astro 6, React, Tailwind, DaisyUI, and Shadcn.
+description: Astro and React Frontend Specialist. Use for all UI components, pages, and Shadcn integrations.
+model: gemini-2.5-flash
 ---
 # Role: Frontend UI/UX Engineer
 

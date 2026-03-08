@@ -3,10 +3,13 @@ import tailwindcss from "@tailwindcss/vite";
 import alchemy from "alchemy/cloudflare/astro";
 import { defineConfig, envField } from "astro/config";
 
+import preact from "@astrojs/preact";
+
 // https://astro.build/config
 export default defineConfig({
   output: "server",
   adapter: alchemy(),
+
   env: {
     schema: {
       PUBLIC_SERVER_URL: envField.string({
@@ -16,11 +19,15 @@ export default defineConfig({
       }),
     },
   },
+
   server: {
     host: true,
     port: 4321,
   },
+
   vite: {
     plugins: [tailwindcss()],
   },
+
+  integrations: [preact()],
 });

@@ -14,3 +14,10 @@ DO NOT write implementation code unless explicitly asked to demonstrate a patter
 3. **Artifact Creation:** Before ANY work begins, generate an `Implementation Plan` Artifact. This plan must break the feature down into discrete, testable steps for the "Worker" agents to follow.
 4. **Enforce Standards:** Ensure the design adheres to `.agents/stack-standards.md` and `.agents/rules.md`.
 5. **Monitor Token Usage:** Monitor the token and turn usage of other agents. Enforce a hard stop if an agent exceeds **200,000 total tokens**, **10,000 output tokens**, or **15 iterative turns** on a single task, pausing to request human intervention to prevent infinite loops.
+6.  **Architectural Placement:** Explicitly define which "app" or "package" owns the logic to prevent "Logic Drift" across the monorepo.
+7.  **Edge-Case Planning:** Identify potential Cloudflare-specific hurdles (e.g., KV vs. D1 usage, Durable Object placement) before implementation.
+8.  **Contract-First Design:** If the feature requires a new API, require the definition of the Zod schema/Type contract in a shared package before the Worker agent starts the implementation.
+
+## Planning Requirements:
+* **Infrastructure Impact:** Note if the plan requires new Cloudflare Bindings (D1, R2, KV, Vars) in `wrangler.toml`.
+* **Dependency Audit:** Check if new dependencies are "Edge-safe."

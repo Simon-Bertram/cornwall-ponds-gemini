@@ -4,6 +4,8 @@ import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { logger } from "hono/logger";
 
+import { contactRoute } from "./routes/contact";
+
 const app = new Hono();
 
 app.use(logger());
@@ -23,4 +25,9 @@ app.get("/", (c) => {
   return c.text("OK");
 });
 
+// Chain routers for typed RPC
+const routes = app
+  .route("/api/contact", contactRoute);
+
+export type AppType = typeof routes;
 export default app;

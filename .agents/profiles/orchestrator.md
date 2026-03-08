@@ -12,3 +12,4 @@ DO NOT write implementation code unless explicitly asked to demonstrate a patter
 2. **System Design:** Determine how the new feature fits into the Turborepo monorepo (`apps/server`, `apps/web`, `packages/*`).
 3. **Artifact Creation:** Before ANY work begins, generate an `Implementation Plan` Artifact. This plan must break the feature down into discrete, testable steps for the "Worker" agents to follow.
 4. **Enforce Standards:** Ensure the design adheres to `.agents/stack-standards.md` and `.agents/rules.md`.
+5. **Monitor Token Usage:** Monitor the token and turn usage of other agents. Enforce a hard stop if an agent exceeds **200,000 total tokens**, **10,000 output tokens**, or **15 iterative turns** on a single task, pausing to request human intervention to prevent infinite loops.

@@ -4,21 +4,27 @@ import Header from "../components/Header.astro";
 
 interface Props {
   title?: string;
+  description?: string;
 }
 
-const { title = "cornwall-ponds-gemini" } = Astro.props;
+const { 
+  title = "Cornwall Ponds | Bespoke Pond Design & Building",
+  description = "Cornwall's premier pond design, building and maintenance company. Over 15 years of experience creating stunning garden ponds, natural swimming ponds, koi ponds and water features across Cornwall and Devon."
+} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en" data-theme="forest">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1a5c3a" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <meta name="description" content={description} />
   </head>
-  <body class="min-h-screen bg-neutral-950 text-white">
+  <body class="min-h-screen bg-base-100 font-sans antialiased text-base-content overflow-x-hidden">
     <Header />
     <slot />
   </body>

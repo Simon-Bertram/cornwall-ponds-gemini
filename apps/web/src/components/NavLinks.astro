@@ -5,7 +5,7 @@ const currentPath = Astro.url.pathname;
 const normalizedPath = currentPath === '/' ? '/' : currentPath.replace(/\/$/, '');
 ---
 
-<ul class="menu menu-horizontal px-1 gap-1 lg:gap-2 xl:gap-4 2xl:gap-6 flex-nowrap whitespace-nowrap">
+<ul class="menu menu-horizontal px-1 gap-1 lg:gap-2 xl:gap-8 flex-nowrap whitespace-nowrap">
   {navLinks.map((link) => {
     const isActive = link.href === '/' 
       ? normalizedPath === '/' 
@@ -15,7 +15,7 @@ const normalizedPath = currentPath === '/' ? '/' : currentPath.replace(/\/$/, ''
       <li>
         <a 
           href={link.href}
-          class={`px-3 py-2 lg:px-4 lg:py-2.5 2xl:px-5 2xl:py-3 text-base 2xl:text-lg transition-all duration-300 ease-in-out ${isActive ? 'bg-primary/10 text-primary dark:text-white font-bold underline underline-offset-4' : 'text-base-content font-medium hover:bg-base-200 hover:text-primary dark:hover:text-white'}`}
+          class={`px-3 py-2 lg:px-4 lg:py-2.5 text-base transition-all duration-300 ease-in-out pond-shape ${isActive ? 'bg-sky-100 dark:bg-sky-900/40 text-primary dark:text-white font-bold shadow-sm' : 'text-base-content font-medium hover:bg-base-100 hover:text-primary dark:hover:text-primary'}`}
           aria-current={isActive ? "page" : undefined}
         >
           {link.label}

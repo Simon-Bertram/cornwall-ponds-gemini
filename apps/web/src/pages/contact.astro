@@ -1,0 +1,158 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Phone, Mail, MapPin, Clock } from "lucide-preact";
+---
+
+<Layout 
+  title="Request a Quote | Cornwall Ponds" 
+  description="Contact our expert team to discuss your bespoke pond design, natural swimming pool, or water feature project in Cornwall and Devon."
+>
+  <main class="min-h-screen bg-base-100 py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-4 md:px-6 lg:px-8">
+      {/* Header Section */}
+      <div class="max-w-3xl mx-auto text-center mb-16 lg:mb-24">
+        <span class="badge badge-primary badge-outline px-4 py-3 uppercase tracking-widest font-bold text-xs mb-6">
+          Start Your Project
+        </span>
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-base-content mb-6">
+          Let's Build Something <span class="text-primary italic">Extraordinary</span>
+        </h1>
+        <p class="text-lg text-base-content/80 leading-relaxed font-medium">
+          Ready to transform your outdoor space? Fill out the form below to request a comprehensive consultation. Our design team will review your requirements and be in touch within 48 hours.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-8 xl:gap-16">
+        
+        {/* Contact Information Sidebar (Trust Signals & Proximity) */}
+        <div class="lg:col-span-2 flex flex-col gap-10 bg-primary/5 rounded-3xl p-8 sm:p-10 border border-primary/10">
+          <div>
+            <h3 class="font-serif text-2xl font-bold text-base-content mb-2">Contact Details</h3>
+            <p class="text-base-content/70">Prefer to speak directly? Reach out to our team using the details below.</p>
+          </div>
+          
+          <div class="flex flex-col gap-8">
+            <div class="flex items-start gap-4">
+              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary shrink-0">
+                <Phone class="h-6 w-6" />
+              </div>
+              <div>
+                <h4 class="font-bold text-base-content">Phone</h4>
+                <a href="tel:+441234567890" class="text-lg text-base-content/80 hover:text-primary transition-colors block mt-1">01234 567 890</a>
+                <p class="text-sm text-base-content/60 mt-1">Mon-Fri: 8am - 6pm</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4">
+              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary shrink-0">
+                <Mail class="h-6 w-6" />
+              </div>
+              <div>
+                <h4 class="font-bold text-base-content">Email</h4>
+                <a href="mailto:hello@cornwallponds.co.uk" class="text-lg text-base-content/80 hover:text-primary transition-colors block mt-1">hello@cornwallponds.co.uk</a>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4">
+              <div class="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary shrink-0">
+                <MapPin class="h-6 w-6" />
+              </div>
+              <div>
+                <h4 class="font-bold text-base-content">Office</h4>
+                <p class="text-lg text-base-content/80 mt-1">
+                  12 Artisan Way<br />
+                  Truro, Cornwall<br />
+                  TR1 2XY
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          {/* Trust Signal Badge */}
+          <div class="mt-auto pt-8 border-t border-base-content/10">
+            <p class="text-sm font-bold text-base-content/80 flex items-center gap-2">
+              <Clock class="h-5 w-5 text-primary" />
+              Fully Insured &amp; Guaranteed Work
+            </p>
+          </div>
+        </div>
+
+        {/* High-End Conversion Form */}
+        <div class="lg:col-span-3 bg-base-100 rounded-3xl p-8 sm:p-10 border border-base-content/10 shadow-xl shadow-base-content/5">
+          <form class="flex flex-col gap-8" action="/api/contact" method="POST">
+            
+            {/* 1. Personal Details */}
+            <div>
+              <h3 class="font-serif text-xl font-bold text-base-content border-b border-base-content/10 pb-2 mb-6">1. Your Details</h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="form-control">
+                  <label class="label pt-0"><span class="label-text font-bold text-base-content/80">First Name *</span></label>
+                  <input type="text" name="firstName" required placeholder="John" class="input input-bordered w-full bg-base-200/50 focus:bg-base-100 focus:border-primary transition-colors pond-shape" />
+                </div>
+                <div class="form-control">
+                  <label class="label pt-0"><span class="label-text font-bold text-base-content/80">Last Name *</span></label>
+                  <input type="text" name="lastName" required placeholder="Smith" class="input input-bordered w-full bg-base-200/50 focus:bg-base-100 focus:border-primary transition-colors pond-shape" />
+                </div>
+                <div class="form-control">
+                  <label class="label pt-0"><span class="label-text font-bold text-base-content/80">Email Address *</span></label>
+                  <input type="email" name="email" required placeholder="john@example.com" class="input input-bordered w-full bg-base-200/50 focus:bg-base-100 focus:border-primary transition-colors pond-shape" />
+                </div>
+                <div class="form-control">
+                  <label class="label pt-0"><span class="label-text font-bold text-base-content/80">Phone Number *</span></label>
+                  <input type="tel" name="phone" required placeholder="07700 900000" class="input input-bordered w-full bg-base-200/50 focus:bg-base-100 focus:border-primary transition-colors pond-shape" />
+                </div>
+              </div>
+            </div>
+
+            {/* 2. Project Qualification (High-End Metric Filter) */}
+            <div>
+              <h3 class="font-serif text-xl font-bold text-base-content border-b border-base-content/10 pb-2 mb-6">2. Project Details</h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="form-control">
+                  <label class="label pt-0"><span class="label-text font-bold text-base-content/80">Service Required *</span></label>
+                  <select name="service" required class="select select-bordered w-full bg-base-200/50 focus:bg-base-100 focus:border-primary transition-colors font-medium pond-shape">
+                    <option disabled selected>Select a Service</option>
+                    <option value="Garden Pond">Garden Pond</option>
+                    <option value="Natural Swimming Pond">Natural Swimming Pond</option>
+                    <option value="Koi Pond">Koi Pond</option>
+                    <option value="Water Feature">Water Feature</option>
+                    <option value="Maintenance">Maintenance &amp; Restoration</option>
+                  </select>
+                </div>
+                <div class="form-control">
+                  <label class="label pt-0"><span class="label-text font-bold text-base-content/80">Estimated Budget *</span></label>
+                  <select name="budget" required class="select select-bordered w-full bg-base-200/50 focus:bg-base-100 focus:border-primary transition-colors font-medium pond-shape">
+                    <option disabled selected>Guide Pricing</option>
+                    <option value="Under £5k">Under £5,000</option>
+                    <option value="£5k - £15k">£5,000 - £15,000</option>
+                    <option value="£15k - £30k">£15,000 - £30,000</option>
+                    <option value="£30k+">£30,000+</option>
+                  </select>
+                </div>
+                <div class="form-control sm:col-span-2">
+                  <label class="label pt-0"><span class="label-text font-bold text-base-content/80">Project Postcode *</span></label>
+                  <input type="text" name="postcode" required placeholder="TR1 1AA" class="input input-bordered w-full sm:w-1/2 bg-base-200/50 focus:bg-base-100 focus:border-primary transition-colors pond-shape" />
+                </div>
+                <div class="form-control sm:col-span-2">
+                  <label class="label pt-0"><span class="label-text font-bold text-base-content/80">Tell us about your vision *</span></label>
+                  <textarea name="message" required rows="4" placeholder="Briefly describe your garden space, ideas, and any specific requirements you have..." class="textarea textarea-bordered w-full text-base bg-base-200/50 focus:bg-base-100 focus:border-primary transition-colors pond-shape resize-y"></textarea>
+                </div>
+              </div>
+            </div>
+
+            {/* Submission */}
+            <div class="pt-6 border-t border-base-content/10">
+              <button type="submit" class="btn btn-primary btn-lg w-full font-bold shadow-lg shadow-primary/20 hover:scale-[1.01] transition-transform pond-shape">
+                Submit Consultation Request
+              </button>
+              <p class="text-xs text-center text-base-content/60 mt-4 leading-relaxed max-w-lg mx-auto">
+                By submitting this form, you agree to our privacy policy. We will only use your information to contact you regarding your enquiry and never share it with third parties.
+              </p>
+            </div>
+            
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

@@ -131,3 +131,9 @@
     @apply border-border outline-ring/50;
   }
 }
+
+@layer utilities {
+  .pond-shape {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+}

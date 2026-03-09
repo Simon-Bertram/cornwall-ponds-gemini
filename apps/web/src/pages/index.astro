@@ -1,12 +1,39 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Hero from "../components/Hero.astro";
+import HeroSlider from "../components/HeroSlider.astro";
+import Testimonials from "../components/Testimonials.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { projects } from "../lib/projects";
+
+// Get the top 3 featured projects for the home page
+const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
 ---
 
-<Layout title="cornwall-ponds-gemini">
-  <Hero />
-  <div class="container mx-auto max-w-3xl px-4 py-2">
-    <div class="grid gap-6"></div>
-  </div>
-</Layout>
+<Layout title="Cornwall Ponds | Bespoke Pond Design & Building">
+  <HeroSlider />
+  
+  <section class="py-24 sm:py-32 bg-base-100">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center mb-16">
+        <h2 class="font-serif text-3xl font-bold tracking-tight text-base-content sm:text-4xl">Featured Projects</h2>
+        <p class="mt-4 text-lg text-base-content/80">
+          Discover some of our recent transformations across Cornwall.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {featuredProjects.map((project) => (
+          <ProjectCard project={project} />
+        ))}
+      </div>
+      
+      <div class="mt-16 text-center">
+        <a href="/our-work" class="btn btn-primary btn-wide">
+          View All Work
+        </a>
+      </div>
+    </div>
+  </section>
 
+  <Testimonials />
+</Layout>

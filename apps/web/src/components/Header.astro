@@ -10,34 +10,39 @@ const normalizedPath = currentPath === '/' ? '/' : currentPath.replace(/\/$/, ''
 
 <header class="fixed top-0 left-0 right-0 z-50 flex flex-col">
   {/* Utility Top Bar - Visible permanently for balance and vital business info */}
-  <div class="w-full bg-primary text-white dark:text-neutral-900 h-12 lg:h-9 flex items-center justify-between lg:justify-end px-4 md:px-6 z-20 shadow-sm shadow-black/5">
+  <div class="w-full bg-primary text-white dark:text-neutral-900 py-3 flex items-center justify-between px-4 md:px-6 z-20 shadow-sm shadow-black/5">
     <a href="tel:+441234567890" class="flex items-center gap-2 text-sm sm:text-base font-bold tracking-wide hover:underline transition-all">
       <Phone class="h-4 w-4" />
       <span><span class="hidden sm:inline">Call us today: </span>01234 567 890</span>
     </a>
-    <a href="/contact" class="btn btn-xs sm:btn-sm lg:hidden bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 font-bold border-none hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-all whitespace-nowrap focus-visible:ring-2 ring-neutral-900 ring-offset-2 ring-offset-primary outline-none">
-      Request a Quote
-    </a>
+    <div class="flex items-center gap-4 lg:hidden">
+      <a href="/login" class="btn btn-xs sm:btn-sm btn-outline text-white dark:text-neutral-900 border-white/30 dark:border-neutral-900/30 hover:bg-white/20 dark:hover:bg-neutral-900/10 font-bold transition-all whitespace-nowrap">
+        Log in
+      </a>
+      <a href="/contact" class="btn btn-xs sm:btn-sm bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 font-bold border-none hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-all whitespace-nowrap focus-visible:ring-2 ring-neutral-900 ring-offset-2 ring-offset-primary outline-none">
+        Request a Quote
+      </a>
+    </div>
   </div>
 
   <div class="relative w-full">
     {/* Background wrapper scoped only to the main navbar height */}
     <div class="absolute inset-0 bg-base-100/90 backdrop-blur-md border-b border-base-content/10 pointer-events-none"></div>
     
-    <div class="navbar relative z-10 mx-auto max-w-7xl px-4 md:px-6 py-2 min-h-[4rem]">
+    <div class="navbar relative z-10 mx-auto max-w-7xl px-4 md:px-6 py-2 min-h-[4rem] lg:gap-8 xl:gap-12">
       {/* Logo */}
       <div class="navbar-start w-auto flex-1 justify-start">
         <a href="/" class="flex items-center gap-3 shrink-0 group">
-          <div class="flex h-10 w-10 2xl:h-12 2xl:w-12 items-center justify-center rounded-full bg-primary shrink-0 transition-transform group-hover:scale-105">
-            <svg viewBox="0 0 24 24" class="h-5 w-5 2xl:h-6 2xl:w-6 text-primary-content" fill="none" stroke="currentColor" stroke-width="2">
+          <div class="flex h-10 w-10 xl:h-12 xl:w-12 items-center justify-center rounded-full bg-primary shrink-0 transition-transform group-hover:scale-105">
+            <svg viewBox="0 0 24 24" class="h-5 w-5 xl:h-6 xl:w-6 text-primary-content" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
               <path d="M8 12c0-2.21 1.79-4 4-4s4 1.79 4 4-1.79 4-4 4" />
               <path d="M6 16c1.5 1.5 3.5 2 6 2" />
             </svg>
           </div>
           <div class="flex flex-col">
-            <span class="font-serif text-lg sm:text-xl 2xl:text-2xl font-bold tracking-tight text-base-content leading-none">Cornwall Ponds</span>
-            <span class="hidden sm:block text-[11px] 2xl:text-xs tracking-widest uppercase text-base-content/70 mt-0.5">Design &amp; Build</span>
+            <span class="font-serif text-lg sm:text-xl xl:text-2xl font-bold tracking-tight text-base-content leading-none">Cornwall Ponds</span>
+            <span class="hidden sm:block text-[11px] xl:text-xs tracking-widest uppercase text-base-content/70 mt-0.5">Design &amp; Build</span>
           </div>
         </a>
       </div>
@@ -48,9 +53,12 @@ const normalizedPath = currentPath === '/' ? '/' : currentPath.replace(/\/$/, ''
       </div>
 
       {/* Cross-Device CTA & Mobile Toggle Wrapper (Symmetrical Balance) */}
-      <div class="navbar-end w-auto flex-1 gap-2 md:gap-4 justify-end">
+      <div class="navbar-end w-auto flex-1 gap-4 justify-end">
+        <a href="/login" class="hidden lg:flex btn btn-outline border-base-content/20 text-base-content hover:bg-base-200 md:btn-md font-bold shadow-sm focus-visible:ring-2 ring-primary ring-offset-2 ring-offset-base-100 outline-none">
+          Log in
+        </a>
         {/* Vital CTA always visible on Desktop */}
-        <a href="/contact" class="hidden lg:flex btn bg-primary text-white dark:text-neutral-900 hover:bg-primary/90 border-none md:btn-md 2xl:btn-lg shadow-sm shadow-primary/20 focus-visible:ring-2 ring-primary ring-offset-2 ring-offset-base-100 outline-none">
+        <a href="/contact" class="hidden lg:flex btn bg-primary text-white dark:text-neutral-900 hover:bg-primary/90 border-none md:btn-md shadow-sm shadow-primary/20 focus-visible:ring-2 ring-primary ring-offset-2 ring-offset-base-100 outline-none">
           Request a Quote
         </a>
         

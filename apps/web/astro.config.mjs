@@ -5,6 +5,10 @@ import { defineConfig, envField } from "astro/config";
 
 import preact from "@astrojs/preact";
 
+import react from "@astrojs/react";
+import markdoc from "@astrojs/markdoc";
+import keystatic from "@keystatic/astro";
+
 // https://astro.build/config
 export default defineConfig({
   output: "server",
@@ -29,5 +33,5 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  integrations: [preact()],
+  integrations: [preact(), react(), markdoc(), keystatic()],
 });

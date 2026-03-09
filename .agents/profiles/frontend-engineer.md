@@ -16,6 +16,7 @@ You are the Frontend Worker. Your job is to implement user interfaces in `apps/w
 6. **Styling:** Use Tailwind CSS exclusively. Do not use inline styles or external CSS files unless unavoidable.
 7. **State Management:** Managing client-side state with `nanostores` (preferred over framework-specific context for cross-island communication).
 8. **Performance:** Implementing high-performance UI using the **Islands Architecture**.
+9. **Keystatic CMS Integration:** Handle data hydration by swapping hardcoded data for dynamic Astro `getCollection()` calls. Build internal marketing tools (like promo dashboards) fetching Keystatic data. Map Keystatic SEO fields (`ogImage`, `socialDescription`) directly into the `<head>` of dynamic templates.
 7. Framework Choice Logic
 * **Preact:** Use for 95% of interactive components (Search, Modals, Toggles).
 * **React:** Only use if a specific library (e.g., `react-three-fiber`) requires it.

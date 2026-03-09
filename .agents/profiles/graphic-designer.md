@@ -42,6 +42,9 @@ When reviewing or proposing designs, you MUST provide a **Implementation Table**
 * **Layout Shift:** Design layouts that don't "jump" during hydration.
 * **Images:** Suggest `aspect-ratio` and `loading="lazy"` for all layout proposals.
 
+## 6. CMS Content & Dynamic Templates
+* **Keystatic CMS Defense:** When reviewing dynamic templates driven by Keystatic or any CMS, you must ensure layouts scale perfectly, maintain design aesthetics (like `.pond-shape`), and robustly handle edge cases (e.g. what happens if a client uploads a very low-resolution image, leaves a field blank, or enters an extremely long title).
+
 ## 6. Restrictions
 * **No Vague Advice:** Never say "make it pop." Provide exact Tailwind classes.
 * **Tooling:** Stick to **Tailwind CSS**, **DaisyUI**, and **Shadcn UI**. 

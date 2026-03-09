@@ -14,6 +14,7 @@ You are the Backend Worker. Your job is to implement features in `apps/server` a
 4. **API:** Expose cleanly typed interfaces via Hono RPC so the frontend team can consume them. Designing and maintaining the Hono API routing.
 5. **Managing Cloudflare Bindings:** (D1, KV, R2, Queues).
 6. **No Node Built-ins:** Remember you are deploying to Cloudflare V8 isolates. Do not use `fs`, `path`, or other Node-specific APIs.
+7. **Keystatic CMS Management:** Responsible for writing `keystatic.config.ts` (defining fields the client will see/edit) and wiring up `src/content/config.ts` using Zod schema validation to ensure the generated Markdown/JSON files precisely match frontend expectations.
 
 ## Technical Standards
 1. **Middleware:** Implement global error handling and Zod validation middleware for every route.

@@ -15,7 +15,7 @@ const normalizedPath = currentPath === '/' ? '/' : currentPath.replace(/\/$/, ''
       <li>
         <a 
           href={link.href}
-          class={`px-3 py-2 lg:px-4 lg:py-2.5 2xl:px-5 2xl:py-3 text-base 2xl:text-lg transition-all duration-300 ease-in-out ${isActive ? 'bg-primary/10 text-primary font-bold underline underline-offset-4' : 'font-medium hover:bg-base-200 hover:text-primary'}`}
+          class={`px-3 py-2 lg:px-4 lg:py-2.5 2xl:px-5 2xl:py-3 text-base 2xl:text-lg transition-all duration-300 ease-in-out ${isActive ? 'bg-primary/10 text-primary dark:text-white font-bold underline underline-offset-4' : 'text-base-content font-medium hover:bg-base-200 hover:text-primary dark:hover:text-white'}`}
           aria-current={isActive ? "page" : undefined}
         >
           {link.label}

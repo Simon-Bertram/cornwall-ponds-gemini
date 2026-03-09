@@ -10,6 +10,7 @@
     "dev:bare": "astro dev"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.6",
     "@astrojs/node": "10.0.0-beta.9",
     "@astrojs/preact": "^4.1.3",
     "@cornwall-ponds-gemini/auth": "workspace:*",
@@ -33,6 +34,6 @@
     "daisyui": "^5.5.19",
     "eslint-plugin-astro": "^1.6.0",
     "tailwindcss": "^4.1.18",
-    "typescript": "catalog:"
+    "typescript": "^5.9.3"
   }
 }

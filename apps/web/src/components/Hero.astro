@@ -1,16 +1,39 @@
-<div
-  class="hero min-h-screen"
-  style="background-image: url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp);"
->
-  <div class="hero-overlay"></div>
-  <div class="hero-content text-neutral-content text-center">
-    <div class="max-w-md">
-      <h1 class="mb-5 text-5xl font-bold">Hello there</h1>
-      <p class="mb-5">
-        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-        quasi. In deleniti eaque aut repudiandae et a id nisi.
+<div class="hero min-h-screen relative overflow-hidden" style="background-image: url(/images/hero-pond.jpg); background-size: cover; background-position: center;">
+  {/* Deep luxury gradient overlay to guarantee text contrast */}
+  <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80 z-0"></div>
+  
+  <div class="hero-content text-center relative z-10 w-full max-w-5xl px-4 py-20 mt-16 sm:mt-24">
+    <div class="max-w-4xl mx-auto flex flex-col items-center gap-6 sm:gap-8">
+      
+      {/* Premium Glassmorphism Badge */}
+      <span class="inline-block rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-medium tracking-widest uppercase text-white backdrop-blur-sm shadow-sm">
+        Over 15 Years of Excellence
+      </span>
+      
+      {/* Main Luxury Typography */}
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-sans font-bold tracking-tight text-white leading-tight text-balance">
+        Bespoke Pond Design <br class="hidden sm:block" />
+        <span class="text-white/90 italic font-serif font-light text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-2 block">
+          for Cornwall &amp; Devon
+        </span>
+      </h1>
+      
+      <p class="text-base sm:text-lg text-white/80 font-medium max-w-2xl mx-auto leading-relaxed mt-2 text-balance">
+        Cornwall's premier pond specialists. We design, build and maintain stunning water features that transform outdoor spaces into living works of art.
       </p>
-      <button class="btn btn-primary">Get Started</button>
+      
+      {/* Luxury CTAs */}
+      <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-6 w-full sm:w-auto">
+        <a href="/contact" class="btn bg-primary text-primary-foreground hover:bg-primary/90 btn-lg shadow-lg shadow-primary/30 w-full sm:w-auto font-bold text-base px-8 border-none">
+          Request a Free Quote
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </a>
+        <a href="/our-work" class="btn btn-outline hover:bg-white/20 bg-white/10 backdrop-blur-sm text-white border-white/30 btn-lg w-full sm:w-auto font-bold text-base px-8 transition-all">
+          View Our Work
+        </a>
+      </div>
     </div>
   </div>
 </div>

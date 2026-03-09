@@ -10,12 +10,12 @@ const normalizedPath = currentPath === '/' ? '/' : currentPath.replace(/\/$/, ''
 
 <header class="fixed top-0 left-0 right-0 z-50 flex flex-col">
   {/* Utility Top Bar - Visible permanently for balance and vital business info */}
-  <div class="w-full bg-primary text-primary-content h-12 lg:h-9 flex items-center justify-between lg:justify-end px-4 md:px-6 z-20 shadow-sm shadow-black/5">
+  <div class="w-full bg-primary text-white dark:text-neutral-900 h-12 lg:h-9 flex items-center justify-between lg:justify-end px-4 md:px-6 z-20 shadow-sm shadow-black/5">
     <a href="tel:+441234567890" class="flex items-center gap-2 text-sm sm:text-base font-bold tracking-wide hover:underline transition-all">
       <Phone class="h-4 w-4" />
       <span><span class="hidden sm:inline">Call us today: </span>01234 567 890</span>
     </a>
-    <a href="/contact" class="btn btn-xs sm:btn-sm lg:hidden bg-base-100 text-primary font-bold border-none hover:bg-base-200 transition-all whitespace-nowrap">
+    <a href="/contact" class="btn btn-xs sm:btn-sm lg:hidden bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 font-bold border-none hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-all whitespace-nowrap focus-visible:ring-2 ring-neutral-900 ring-offset-2 ring-offset-primary outline-none">
       Request a Quote
     </a>
   </div>
@@ -50,7 +50,7 @@ const normalizedPath = currentPath === '/' ? '/' : currentPath.replace(/\/$/, ''
       {/* Cross-Device CTA & Mobile Toggle Wrapper (Symmetrical Balance) */}
       <div class="navbar-end w-auto flex-1 gap-2 md:gap-4 justify-end">
         {/* Vital CTA always visible on Desktop */}
-        <a href="/contact" class="hidden lg:flex btn btn-primary md:btn-md 2xl:btn-lg shadow-sm shadow-primary/20">
+        <a href="/contact" class="hidden lg:flex btn bg-primary text-white dark:text-neutral-900 hover:bg-primary/90 border-none md:btn-md 2xl:btn-lg shadow-sm shadow-primary/20 focus-visible:ring-2 ring-primary ring-offset-2 ring-offset-base-100 outline-none">
           Request a Quote
         </a>
         

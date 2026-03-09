@@ -38,7 +38,7 @@ export function MobileMenu({ currentPath, navLinks }: MobileMenuProps) {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  class={`text-xl md:text-2xl font-serif transition-all duration-300 w-full text-center py-2 ${isActive ? 'text-primary font-bold border-b-2 border-primary/30' : 'text-base-content hover:text-primary font-medium'}`}
+                  class={`text-xl md:text-2xl font-serif transition-all duration-300 w-full text-center py-2 ${isActive ? 'text-primary dark:text-white bg-primary/10 font-bold rounded-lg border border-primary/20' : 'text-base-content hover:text-primary font-medium'}`}
                   aria-current={isActive ? "page" : undefined}
                 >
                   {link.label}
@@ -53,7 +53,7 @@ export function MobileMenu({ currentPath, navLinks }: MobileMenuProps) {
               <a
                 href="/contact"
                 onClick={() => setMobileOpen(false)}
-                class="btn btn-primary btn-md md:btn-lg w-full font-bold shadow-lg shadow-primary/20"
+                class="btn bg-primary text-white dark:text-neutral-900 hover:bg-primary/90 border-none btn-md md:btn-lg w-full font-bold shadow-lg shadow-primary/20 focus-visible:ring-2 ring-primary ring-offset-2 ring-offset-base-100 outline-none"
               >
                 Request a Quote
               </a>

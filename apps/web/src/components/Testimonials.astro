@@ -1,0 +1,23 @@
+---
+import { TestimonialsCarousel } from "./TestimonialsCarousel";
+import { testimonials } from "../lib/projects";
+---
+
+<section class="py-24 sm:py-32 bg-primary/95 text-primary-content relative overflow-hidden" aria-label="Testimonials">
+  <div class="absolute inset-0 bg-[url('https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp')] opacity-10 mix-blend-overlay"></div>
+  
+  <div class="mx-auto max-w-5xl px-6 lg:px-8 relative z-10 text-center flex flex-col items-center">
+    <span class="badge badge-secondary badge-outline px-4 py-3 uppercase tracking-widest font-bold text-[10px] sm:text-xs">
+      Testimonials
+    </span>
+    <h2 class="mt-6 font-serif text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl max-w-2xl">
+      What Our Clients Say
+    </h2>
+    <p class="mt-4 text-base sm:text-lg text-primary-content/80 max-w-2xl">
+      We pride ourselves on our attention to detail and customer satisfaction. Hear directly from those who have transformed their outdoor spaces with Cornwall Ponds.
+    </p>
+
+    {/* Interactive Preact Island */}
+    <TestimonialsCarousel client:idle testimonials={testimonials} />
+  </div>
+</section>

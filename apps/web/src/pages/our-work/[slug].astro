@@ -2,14 +2,13 @@
 import Layout from "../../layouts/Layout.astro";
 import { projects } from "../../lib/projects";
 
-export function getStaticPaths() {
-  return projects.map((project) => ({
-    params: { slug: project.slug },
-    props: { project },
-  }));
-}
+// SSR mode: getStaticPaths() is ignored. Look up the project from the URL param at request time.
+const { slug } = Astro.params;
+const project = projects.find((p) => p.slug === slug);
 
-const { project } = Astro.props;
+if (!project) {
+  return Astro.redirect("/our-work", 404);
+}
 ---
 
 <Layout 

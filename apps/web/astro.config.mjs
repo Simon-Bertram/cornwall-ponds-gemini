@@ -1,6 +1,7 @@
 // @ts-check
 import tailwindcss from "@tailwindcss/vite";
 import alchemy from "alchemy/cloudflare/astro";
+import node from "@astrojs/node";
 import { defineConfig, envField } from "astro/config";
 
 import preact from "@astrojs/preact";
@@ -9,10 +10,12 @@ import react from "@astrojs/react";
 import markdoc from "@astrojs/markdoc";
 import keystatic from "@keystatic/astro";
 
+const isDev = process.argv.includes("dev");
+
 // https://astro.build/config
 export default defineConfig({
   output: "server",
-  adapter: alchemy(),
+  adapter: isDev ? node({ mode: "standalone" }) : alchemy(),
 
   env: {
     schema: {
@@ -31,7 +34,18 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
+    optimizeDeps: {
+      exclude: ["virtual:keystatic-config", "picomatch"],
+    },
+    ssr: {
+      external: ["picomatch"],
+    },
   },
 
-  integrations: [preact(), react(), markdoc(), keystatic()],
+  integrations: [
+    preact({ include: ["**/components/*.tsx", "**/components/**/*.tsx"] }),
+    react({ include: ["**/@keystatic/**", "**/keystatic/**"] }),
+    markdoc(),
+    keystatic(),
+  ],
 });

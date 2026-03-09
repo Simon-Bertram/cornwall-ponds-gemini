@@ -13,7 +13,7 @@
       "@types/node": "^22.13.14",
       "@cloudflare/workers-types": "^4.20251213.0",
       "better-auth": "1.5.2",
-      "alchemy": "^0.82.1",
+      "alchemy": "^0.87.0",
       "@libsql/client": "0.15.15",
       "libsql": "0.5.22"
     }

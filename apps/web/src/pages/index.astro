@@ -4,6 +4,7 @@ import HeroSlider from "../components/HeroSlider.astro";
 import WhyChooseUs from "../components/WhyChooseUs.astro";
 import ServicesPreview from "../components/ServicesPreview.astro";
 import BeforeAfter from "../components/BeforeAfter.tsx";
+import HowWeWork from "../components/HowWeWork.astro";
 import Testimonials from "../components/Testimonials.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import { projects } from "../lib/projects";
@@ -41,5 +42,6 @@ const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
     </div>
   </section>
 
+  <HowWeWork />
   <Testimonials />
 </Layout>

@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import HeroSlider from "../components/HeroSlider.astro";
 import WhyChooseUs from "../components/WhyChooseUs.astro";
+import ServicesPreview from "../components/ServicesPreview.astro";
+import BeforeAfter from "../components/BeforeAfter.tsx";
 import Testimonials from "../components/Testimonials.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import { projects } from "../lib/projects";
@@ -13,6 +15,8 @@ const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
 <Layout title="Cornwall Ponds | Bespoke Pond Design & Building">
   <HeroSlider />
   <WhyChooseUs />
+  <ServicesPreview />
+  <BeforeAfter projects={featuredProjects} client:visible />
   
   <section class="py-24 sm:py-32 bg-base-100">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">

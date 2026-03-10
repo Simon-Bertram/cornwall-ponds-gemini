@@ -50,6 +50,16 @@ When reviewing or proposing designs, you MUST provide a **Implementation Table**
 * **Tooling:** Stick to **Tailwind CSS**, **DaisyUI**, and **Shadcn UI**. 
 * **Scope:** Do not touch Hono routing or Cloudflare Worker logic. 
 
+## 7. Colour Lockdown (MANDATORY)
+**Before writing ANY colour class, you MUST read `apps/web/src/styles/global.css` to confirm the available tokens.**
+
+* **ALLOWED colours:** ONLY use the semantic tokens defined in `global.css`: `primary`, `primary-foreground`, `accent`, `accent-foreground`, `base-100`, `base-200`, `base-300`, `base-content`, `secondary`, `secondary-foreground`, `muted`, `muted-foreground`, `foreground`, `background`, `card`, `card-foreground`, `border`, `destructive`.
+* **BANNED colours:** Do NOT use raw Tailwind colour families (`emerald-*`, `sky-*`, `rose-*`, `indigo-*`, `stone-*`, `slate-*`, `red-*`, `blue-*`, `green-*`, etc.). These are off-brand and create visual chaos.
+* **Opacity variants:** You MAY use opacity modifiers on allowed tokens (e.g. `text-base-content/70`, `bg-primary/10`). Always confirm the resulting contrast ratio meets WCAG AA (4.5:1 for text, 3:1 for UI).
+* **Dark-on-dark audit:** When placing text on a dark background (`bg-base-content`, `bg-foreground`), the only allowed light text tokens are: `text-base-100`, `text-primary-foreground`, `text-accent-foreground`, `text-background`. NEVER use `text-primary` on a dark background — it is a dark-on-dark combination.
+* **Gradient headers:** If a decorative gradient is needed, construct it ONLY from brand tokens: e.g. `from-primary/80 to-accent/60`, NOT from arbitrary Tailwind palettes.
+
 ## Response Format Requirement:
 Whenever you suggest a visual change, you MUST conclude with:
 "**Accessibility Check:** [Pass/Fail] - Contrast ratio is X:1. Target size is [X]px. Keyboard focus is handled via [Class Name]."
+"**Colour Compliance:** [Pass/Fail] - All colours used are from `global.css` tokens: [list tokens used]."

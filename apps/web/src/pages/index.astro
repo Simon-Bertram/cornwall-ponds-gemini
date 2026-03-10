@@ -6,6 +6,7 @@ import ServicesPreview from "../components/ServicesPreview.astro";
 import BeforeAfter from "../components/BeforeAfter.tsx";
 import HowWeWork from "../components/HowWeWork.astro";
 import Testimonials from "../components/Testimonials.astro";
+import GetStarted from "../components/GetStarted.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import { projects } from "../lib/projects";
 
@@ -44,4 +45,5 @@ const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
 
   <HowWeWork />
   <Testimonials />
+  <GetStarted />
 </Layout>

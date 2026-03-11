@@ -2,52 +2,175 @@
 import { authClient } from "../lib/auth-client";
 ---
 
-<div class="mx-auto mt-10 w-full max-w-md p-6">
-  <h1 class="mb-6 text-center font-bold text-3xl text-white">Welcome Back</h1>
+<div class="auth-card">
+  <h1 class="auth-title">Welcome Back</h1>
 
-  <form id="signin-form" class="space-y-4">
-    <div class="space-y-1">
-      <label for="email" class="block text-sm font-medium text-neutral-300">Email</label>
+  <form id="signin-form" class="auth-form">
+    <div class="form-group">
+      <label for="email" class="form-label">Email</label>
       <input
         id="email"
         name="email"
         type="email"
         required
-        class="w-full rounded-lg border border-neutral-700 bg-neutral-800 px-4 py-2.5 text-white placeholder-neutral-500 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+        class="form-input"
         placeholder="you@example.com"
       />
-      <p id="email-error" class="text-sm text-red-500 hidden"></p>
+      <p id="email-error" class="field-error hidden"></p>
     </div>
 
-    <div class="space-y-1">
-      <label for="password" class="block text-sm font-medium text-neutral-300">Password</label>
+    <div class="form-group">
+      <label for="password" class="form-label">Password</label>
       <input
         id="password"
         name="password"
         type="password"
         required
-        class="w-full rounded-lg border border-neutral-700 bg-neutral-800 px-4 py-2.5 text-white placeholder-neutral-500 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+        class="form-input"
         placeholder="••••••••"
       />
-      <p id="password-error" class="text-sm text-red-500 hidden"></p>
+      <p id="password-error" class="field-error hidden"></p>
     </div>
 
-    <p id="form-error" class="text-sm text-red-500 hidden"></p>
+    <p id="form-error" class="field-error hidden"></p>
 
-    <button
-      type="submit"
-      class="w-full rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-neutral-900 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-    >
+    <button type="submit" class="auth-submit-btn">
       Sign In
     </button>
   </form>
 
-  <div class="mt-4 text-center">
-    <a href="/signup" class="text-indigo-400 hover:text-indigo-300 text-sm">
+  <div class="auth-footer">
+    <a href="/signup" class="auth-link">
       Need an account? Sign Up
     </a>
   </div>
 </div>
+
+<style>
+  .auth-card {
+    width: 100%;
+    max-width: 28rem;
+    margin-inline: auto;
+    padding: 2.5rem;
+    background-color: var(--card);
+    color: var(--card-foreground);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    box-shadow:
+      0 4px 6px -1px oklch(0 0 0 / 0.08),
+      0 10px 30px -5px oklch(0 0 0 / 0.12);
+  }
+
+  .auth-title {
+    font-family: var(--font-serif, 'Playfair Display', serif);
+    font-size: 1.875rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--foreground);
+    margin-bottom: 1.75rem;
+  }
+
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  .form-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--foreground);
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 0.625rem 1rem;
+    border-radius: 0.5rem;
+    border: 1.5px solid var(--border);
+    background-color: var(--background);
+    color: var(--foreground);
+    font-size: 0.9375rem;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    outline: none;
+  }
+
+  .form-input::placeholder {
+    color: var(--muted-foreground);
+    opacity: 0.7;
+  }
+
+  .form-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px oklch(from var(--primary) l c h / 0.2);
+  }
+
+  .field-error {
+    font-size: 0.8125rem;
+    color: var(--destructive);
+  }
+
+  .field-error.hidden {
+    display: none;
+  }
+
+  .auth-submit-btn {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.15s ease, transform 0.1s ease;
+    margin-top: 0.25rem;
+  }
+
+  .auth-submit-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+
+  .auth-submit-btn:active {
+    transform: translateY(0);
+  }
+
+  .auth-submit-btn:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  .auth-submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .auth-footer {
+    margin-top: 1.25rem;
+    text-align: center;
+  }
+
+  .auth-link {
+    font-size: 0.875rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.15s ease;
+  }
+
+  .auth-link:hover {
+    opacity: 0.75;
+    text-decoration: underline;
+  }
+</style>
 
 <script>
   import { authClient } from "../lib/auth-client";

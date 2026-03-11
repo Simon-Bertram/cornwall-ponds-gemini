@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import HeroSlider from "../components/HeroSlider.astro";
-import WhyChooseUs from "../components/WhyChooseUs.astro";
+
 import ServicesPreview from "../components/ServicesPreview.astro";
 import BeforeAfter from "../components/BeforeAfter.tsx";
 import HowWeWork from "../components/HowWeWork.astro";
@@ -16,7 +16,7 @@ const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
 
 <Layout title="Cornwall Ponds | Bespoke Pond Design & Building">
   <HeroSlider />
-  <WhyChooseUs />
+
   <ServicesPreview />
   <BeforeAfter projects={featuredProjects} client:visible />
   

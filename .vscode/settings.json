@@ -1,3 +1,27 @@
 {
-  "css.lint.unknownAtRules": "ignore"
+  // Suppress false-positive warning for @plugin "daisyui" etc.
+  "css.lint.unknownAtRules": "ignore",
+
+  // Tell ESLint to lint .astro files in addition to JS/TS
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "astro"
+  ],
+  // Point ESLint at the apps/web directory where eslint.config.js lives
+  "eslint.workingDirectories": [
+    { "directory": "apps/web", "changeProcessCWD": true }
+  ],
+
+  // Associate .astro files with the Astro language for syntax highlighting
+  "files.associations": {
+    "*.astro": "astro"
+  },
+
+  // Use Astro extension as the formatter for .astro files (requires astro-build.astro-vscode)
+  "[astro]": {
+    "editor.formatOnSave": true
+  }
 }

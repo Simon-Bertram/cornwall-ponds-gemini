@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    // Astro language support - syntax highlighting, IntelliSense, formatting
+    "astro-build.astro-vscode",
+    // ESLint integration
+    "dbaeumer.vscode-eslint",
+    // Tailwind CSS IntelliSense
+    "bradlc.vscode-tailwindcss"
+  ]
+}

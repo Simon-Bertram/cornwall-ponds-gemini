@@ -11,7 +11,10 @@ export function PortfolioCard({ project }: PortfolioCardProps) {
 
   return (
     <div class="group flex flex-col h-full bg-base-100 rounded-xl overflow-hidden border border-base-content/10 shadow-sm hover:shadow-xl transition-all duration-300">
-      <a href={`/our-work/${project.slug}`} class="block relative aspect-[4/3] overflow-hidden">
+      <a
+        href={`/our-work/${project.slug}`}
+        class="block relative aspect-[4/3] overflow-hidden"
+      >
         {/* Before Image */}
         <img
           src={project.beforeImage}
@@ -31,13 +34,19 @@ export function PortfolioCard({ project }: PortfolioCardProps) {
         {/* Before/After Toggle */}
         <div class="absolute top-3 left-3 z-10 flex rounded-full bg-black/60 backdrop-blur-md overflow-hidden p-0.5 border border-white/10">
           <button
-            onClick={(e) => { e.preventDefault(); setShowAfter(false); }}
+            onClick={(e) => {
+              e.preventDefault();
+              setShowAfter(false);
+            }}
             class={`px-3 py-1 text-xs font-semibold rounded-full transition-colors ${!showAfter ? "bg-primary text-primary-content" : "text-white/70 hover:text-white"}`}
           >
             Before
           </button>
           <button
-            onClick={(e) => { e.preventDefault(); setShowAfter(true); }}
+            onClick={(e) => {
+              e.preventDefault();
+              setShowAfter(true);
+            }}
             class={`px-3 py-1 text-xs font-semibold rounded-full transition-colors ${showAfter ? "bg-primary text-primary-content" : "text-white/70 hover:text-white"}`}
           >
             After
@@ -46,10 +55,10 @@ export function PortfolioCard({ project }: PortfolioCardProps) {
 
         {/* Badges */}
         <div class="absolute top-3 right-3 z-10 flex flex-col gap-1.5 items-end">
-          <span class="rounded-full bg-primary/95 text-primary-content px-2.5 py-0.5 text-[11px] font-bold tracking-wide shadow-sm">
+          <span class="rounded-full bg-primary/95 text-primary-content px-2.5 py-1.5 text-[11px] font-bold tracking-wide shadow-sm">
             {project.serviceType}
           </span>
-          <span class="rounded-full bg-neutral/80 text-neutral-content backdrop-blur-sm px-2.5 py-0.5 text-[11px] font-medium shadow-sm">
+          <span class="rounded-full bg-neutral/80 text-neutral-content backdrop-blur-sm py-1.5 px-2.5 py-0.5 text-[11px] font-medium shadow-sm">
             {project.location}
           </span>
         </div>
@@ -59,7 +68,10 @@ export function PortfolioCard({ project }: PortfolioCardProps) {
       </a>
 
       <div class="p-5 flex flex-col flex-grow">
-        <a href={`/our-work/${project.slug}`} class="group/link mb-2 outline-none focus-visible:ring-2 ring-primary rounded-sm">
+        <a
+          href={`/our-work/${project.slug}`}
+          class="group/link mb-2 outline-none focus-visible:ring-2 ring-primary rounded-sm"
+        >
           <h3 class="font-serif text-lg sm:text-xl font-bold text-base-content group-hover/link:text-primary transition-colors line-clamp-2">
             {project.title}
           </h3>

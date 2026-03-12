@@ -2,10 +2,12 @@
   "name": "cornwall-ponds-gemini",
   "image": "mcr.microsoft.com/devcontainers/typescript-node:22",
   "features": {
+    // "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {},
     "ghcr.io/devcontainers/features/github-cli:1": {},
     "ghcr.io/devcontainers/features/common-utils:1": {
       "configureZshAsDefaultShell": true
     }
+    // "ghcr.io/devcontainers/features/bun:latest": {}
   },
   "forwardPorts": [8787, 4321],
   "portsAttributes": {
@@ -17,7 +19,7 @@
   "mounts": [
     "source=${localWorkspaceFolderBasename}-wrangler-state,target=${containerWorkspaceFolder}/.wrangler/state,type=volume"
   ],
-  "postCreateCommand": "bun install",
+  "postCreateCommand": "curl -fsSL https://bun.sh/install | bash && bun install",
   "customizations": {
     "vscode": {
       "settings": {

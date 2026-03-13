@@ -60,7 +60,10 @@ const slides = [
           <div class="max-w-4xl mx-auto flex flex-col items-center gap-6 sm:gap-8">
             {/* Premium Glassmorphism Badge w/ Trust Signals */}
             <div class="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-medium tracking-wide text-white backdrop-blur-sm shadow-sm md:text-sm">
-              <span class="flex items-center gap-0.5 text-[#F5B041]" aria-hidden="true">
+              <span
+                class="flex items-center gap-0.5 text-[#F5B041]"
+                aria-hidden="true"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-4 w-4"
@@ -180,23 +183,26 @@ const slides = [
 </section>
 
 <script>
-  import { initHeroSlider } from "../lib/hero-slider-init"
+  import { initHeroSlider } from "./hero-slider-init";
 
   function attachHeroSlider() {
-    const sliderContainer = document.getElementById("hero-slider")
-    if (!sliderContainer) return
+    const sliderContainer = document.getElementById("hero-slider");
+    if (!sliderContainer) return;
 
     // Delay initialization slightly so we don't compete with first paint.
     window.requestAnimationFrame(() => {
-      initHeroSlider(sliderContainer, { intervalMs: 7000 })
-    })
+      initHeroSlider(sliderContainer, { intervalMs: 7000 });
+    });
   }
 
-  document.addEventListener("astro:page-load", attachHeroSlider)
+  document.addEventListener("astro:page-load", attachHeroSlider);
 
-  if (document.readyState === "complete" || document.readyState === "interactive") {
-    attachHeroSlider()
+  if (
+    document.readyState === "complete" ||
+    document.readyState === "interactive"
+  ) {
+    attachHeroSlider();
   } else {
-    document.addEventListener("DOMContentLoaded", attachHeroSlider)
+    document.addEventListener("DOMContentLoaded", attachHeroSlider);
   }
 </script>

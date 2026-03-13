@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import HeroSlider from "../components/HeroSlider.astro";
+import HeroSlider from "../components/hero/HeroSlider.astro";
 
 import ServicesPreview from "../components/ServicesPreview.astro";
 import BeforeAfter from "../components/BeforeAfter.tsx";
@@ -15,7 +15,7 @@ const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
 ---
 
 <Layout title="Cornwall Ponds | Bespoke Pond Design & Building">
-  <main id="main-content">
+  <main id="main-content" tabindex="-1">
     <HeroSlider />
 
     <ServicesPreview />

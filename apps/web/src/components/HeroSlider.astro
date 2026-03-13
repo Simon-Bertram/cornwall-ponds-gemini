@@ -35,10 +35,9 @@ const slides = [
 ];
 ---
 
-<div
+<section
   class="hero min-h-[600px] h-screen max-h-[1100px] relative overflow-hidden bg-black"
   id="hero-slider"
-  aria-label="Hero Slideshow"
 >
   {
     slides.map((slide, index) => (
@@ -61,7 +60,7 @@ const slides = [
           <div class="max-w-4xl mx-auto flex flex-col items-center gap-6 sm:gap-8">
             {/* Premium Glassmorphism Badge w/ Trust Signals */}
             <div class="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-medium tracking-wide text-white backdrop-blur-sm shadow-sm md:text-sm">
-              <span class="flex items-center gap-0.5 text-[#F5B041]">
+              <span class="flex items-center gap-0.5 text-[#F5B041]" aria-hidden="true">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-4 w-4"
@@ -125,7 +124,7 @@ const slides = [
               </h2>
             )}
 
-            <p class="text-base sm:text-lg text-white/80 font-medium max-w-2xl mx-auto leading-relaxed mt-2 text-balance lg:min-h-[3rem]">
+            <p class="text-base sm:text-lg text-white/80 font-medium max-w-2xl mx-auto leading-relaxed mt-2 text-balance lg:min-h-12">
               {slide.description}
             </p>
 
@@ -165,7 +164,6 @@ const slides = [
   {/* Slide Indicators */}
   <div
     class="absolute bottom-8 left-0 right-0 z-30 flex justify-center gap-3"
-    role="tablist"
     aria-label="Hero slides"
   >
     {
@@ -173,81 +171,32 @@ const slides = [
         <button
           class={`indicator-btn h-2 w-8 rounded-full transition-all duration-500 cursor-pointer focus:outline-none focus-visible:ring-2 ring-white ring-offset-2 ring-offset-black/50 ${index === 0 ? "bg-white" : "bg-white/30 hover:bg-white/50"}`}
           data-index={index}
-          role="tab"
-          aria-selected={index === 0 ? "true" : "false"}
-          aria-label={`Slide ${index + 1}`}
+          type="button"
+          aria-label={`Go to slide ${index + 1}`}
         />
       ))
     }
   </div>
-</div>
+</section>
 
 <script>
-  function initHeroSlider() {
-    const sliderContainer = document.getElementById("hero-slider");
-    if (!sliderContainer) return;
+  import { initHeroSlider } from "../lib/hero-slider-init"
 
-    const slides = sliderContainer.querySelectorAll(".slide");
-    const indicators = sliderContainer.querySelectorAll(".indicator-btn");
-    if (slides.length <= 1) return;
+  function attachHeroSlider() {
+    const sliderContainer = document.getElementById("hero-slider")
+    if (!sliderContainer) return
 
-    let currentSlide = 0;
-    const totalSlides = slides.length;
-    let slideInterval: number | undefined;
-
-    function goToSlide(index: number) {
-      // Deactivate current text/image slide
-      slides[currentSlide].classList.remove("opacity-100", "z-10");
-      slides[currentSlide].classList.add("opacity-0", "z-0");
-      slides[currentSlide].setAttribute("aria-hidden", "true");
-
-      const currentIndicator = indicators[currentSlide] as HTMLElement;
-      currentIndicator.classList.remove("bg-white");
-      currentIndicator.classList.add("bg-white/30");
-      currentIndicator.setAttribute("aria-selected", "false");
-
-      // Update index & activate new text/image slide
-      currentSlide = index;
-
-      slides[currentSlide].classList.remove("opacity-0", "z-0");
-      slides[currentSlide].classList.add("opacity-100", "z-10");
-      slides[currentSlide].setAttribute("aria-hidden", "false");
-
-      const nextIndicator = indicators[currentSlide] as HTMLElement;
-      nextIndicator.classList.remove("bg-white/30");
-      nextIndicator.classList.add("bg-white");
-      nextIndicator.setAttribute("aria-selected", "true");
-    }
-
-    function nextSlide() {
-      goToSlide((currentSlide + 1) % totalSlides);
-    }
-
-    function startInterval() {
-      slideInterval = window.setInterval(nextSlide, 7000); // 7 seconds per slide
-    }
-
-    // Handle manual clicks on indicator "pill" buttons
-    indicators.forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        const target = e.currentTarget as HTMLButtonElement;
-        const index = parseInt(target.getAttribute("data-index") || "0", 10);
-        goToSlide(index);
-
-        // Reset the interval so they get a full 7 seconds to read the slide they just clicked on
-        if (slideInterval) clearInterval(slideInterval);
-        startInterval();
-      });
-    });
-
-    startInterval();
+    // Delay initialization slightly so we don't compete with first paint.
+    window.requestAnimationFrame(() => {
+      initHeroSlider(sliderContainer, { intervalMs: 7000 })
+    })
   }
 
-  // Ensure scripts run properly with Astro's ViewTransitions or classic navigation
-  document.addEventListener("astro:page-load", initHeroSlider);
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initHeroSlider);
+  document.addEventListener("astro:page-load", attachHeroSlider)
+
+  if (document.readyState === "complete" || document.readyState === "interactive") {
+    attachHeroSlider()
   } else {
-    initHeroSlider();
+    document.addEventListener("DOMContentLoaded", attachHeroSlider)
   }
 </script>

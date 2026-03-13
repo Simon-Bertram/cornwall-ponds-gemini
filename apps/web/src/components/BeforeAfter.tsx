@@ -58,6 +58,13 @@ export default function BeforeAfter({ projects }: Props) {
 
         {/* ── Slider area ── */}
         <div class="mx-auto max-w-4xl">
+          <p
+            id="before-after-instructions"
+            class="sr-only"
+          >
+            Use left and right arrow keys or drag to compare the before and after
+            images for this project.
+          </p>
 
           {/* Image comparison widget */}
           <div
@@ -152,8 +159,13 @@ export default function BeforeAfter({ projects }: Props) {
               onInput={(e) =>
                 setSliderValue(Number((e.target as HTMLInputElement).value))
               }
-              class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30"
+              class="peer absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30"
               aria-label={`Before/after comparison for ${project.title}. Slide left or right.`}
+              aria-describedby="before-after-instructions"
+            />
+            <div
+              class="pointer-events-none absolute inset-0 rounded-2xl ring-2 ring-accent-foreground/80 ring-offset-2 ring-offset-base-content opacity-0 transition-opacity duration-150 peer-focus-visible:opacity-100"
+              aria-hidden="true"
             />
           </div>
 

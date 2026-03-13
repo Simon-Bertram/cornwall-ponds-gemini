@@ -11,9 +11,10 @@ export interface MobileMenuProps {
   navLinks: NavLink[];
 }
 
-export function MobileMenu({ currentPath, navLinks }: MobileMenuProps) {
+export default function MobileMenu({ currentPath, navLinks }: MobileMenuProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const normalizedPath = currentPath === '/' ? '/' : currentPath.replace(/\/$/, '');
+  const normalizedPath =
+    currentPath === "/" ? "/" : currentPath.replace(/\/$/, "");
 
   return (
     <>

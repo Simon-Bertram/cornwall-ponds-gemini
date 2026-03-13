@@ -6,7 +6,9 @@ export interface TestimonialsCarouselProps {
   testimonials: Testimonial[];
 }
 
-export function TestimonialsCarousel({ testimonials }: TestimonialsCarouselProps) {
+export default function TestimonialsCarousel({
+  testimonials,
+}: TestimonialsCarouselProps) {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {

@@ -11,11 +11,16 @@ import markdoc from "@astrojs/markdoc";
 import keystatic from "@keystatic/astro";
 
 const isDev = process.argv.includes("dev");
+const isTest = process.env.VITEST === "true";
 
 // https://astro.build/config
 export default defineConfig({
   output: "server",
-  adapter: isDev ? node({ mode: "standalone" }) : alchemy(),
+  adapter: isTest
+    ? node({ mode: "standalone" })
+    : isDev
+      ? node({ mode: "standalone" })
+      : alchemy(),
 
   env: {
     schema: {

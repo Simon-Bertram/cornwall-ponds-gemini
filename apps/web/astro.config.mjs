@@ -40,7 +40,11 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     optimizeDeps: {
-      exclude: ["virtual:keystatic-config", "picomatch"],
+      exclude: [
+        "virtual:keystatic-config",
+        "picomatch",
+        "lightningcss",
+      ],
     },
     ssr: {
       external: ["picomatch"],

@@ -40,7 +40,7 @@ const {
     <meta property="twitter:image" content={new URL("/images/hero-pond.jpg", Astro.url)} />
     <link rel="canonical" href={Astro.url} />
   </head>
-  <body class="min-h-screen bg-base-100 font-sans antialiased text-base-content overflow-x-hidden">
+  <body class="min-h-screen bg-base-100 font-sans antialiased text-base-content overflow-x-hidden flex flex-col">
     <a
       href="#main-content"
       class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-100 focus:px-4 focus:py-2 focus:bg-base-100 focus:text-base-content focus:shadow-lg focus:rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-base-100"
@@ -48,7 +48,9 @@ const {
       Skip to main content
     </a>
     <Header />
-    <slot />
+    <main id="main-content" class="flex-1">
+      <slot />
+    </main>
     <Footer />
   </body>
 </html>

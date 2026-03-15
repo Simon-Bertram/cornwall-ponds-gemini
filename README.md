@@ -53,7 +53,7 @@ The API is running at [http://localhost:3000](http://localhost:3000).
 - Deploy: bun run deploy
 - Destroy: bun run destroy
 
-For more details, see the guide on [Deploying to Cloudflare with Alchemy](https://www.better-t-stack.dev/docs/guides/cloudflare-alchemy).
+For a full step-by-step guide (prerequisites, env vars, first deploy, custom domains, auth), see **[docs/cloudflare-deployment-guide.md](docs/cloudflare-deployment-guide.md)**. For Alchemy architecture and commands, see [docs/alchemy-guide.md](docs/alchemy-guide.md).
 
 ## Project Structure
 

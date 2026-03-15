@@ -3,6 +3,7 @@ import { Phone } from "lucide-preact";
 import MobileMenu from "./MobileMenu";
 import NavLinks from "./NavLinks.astro";
 import { navLinks } from "../config/nav";
+import AuthButton from "./AuthButton";
 
 const currentPath = Astro.url.pathname;
 const normalizedPath =
@@ -26,12 +27,7 @@ const normalizedPath =
       >
     </a>
     <div class="flex items-center gap-4 lg:hidden">
-      <a
-        href="/login"
-        class="btn btn-xs sm:btn-sm btn-outline text-white dark:text-neutral-900 border-white/30 dark:border-neutral-900/30 hover:bg-white/20 dark:hover:bg-neutral-900/10 font-bold transition-all whitespace-nowrap"
-      >
-        Log in
-      </a>
+      <AuthButton client:load variant="compact" />
       <a
         href="/contact"
         class="btn btn-xs sm:btn-sm bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 font-bold border-none hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-all whitespace-nowrap focus-visible:ring-2 ring-neutral-900 ring-offset-2 ring-offset-primary outline-none"
@@ -92,12 +88,11 @@ const normalizedPath =
 
       {/* Cross-Device CTA & Mobile Toggle Wrapper (Symmetrical Balance) */}
       <div class="navbar-end w-auto flex-1 gap-4 justify-end">
-        <a
-          href="/login"
-          class="hidden lg:flex btn btn-outline border-base-content/20 text-base-content hover:bg-base-200 md:btn-md font-bold focus-visible:ring-2 ring-primary ring-offset-2 ring-offset-base-100 outline-none"
-        >
-          Log in
-        </a>
+        <AuthButton
+          client:load
+          variant="desktop"
+          className="hidden lg:flex"
+        />
         {/* Vital CTA always visible on Desktop */}
         <a
           href="/contact"

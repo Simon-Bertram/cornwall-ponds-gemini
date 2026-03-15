@@ -1,5 +1,6 @@
 import { useState } from "preact/hooks";
 import { Menu, X, Phone } from "lucide-preact";
+import AuthButton from "./AuthButton";
 
 export interface NavLink {
   href: string;
@@ -56,13 +57,10 @@ export default function MobileMenu({ currentPath, navLinks }: MobileMenuProps) {
                 <span>01234 567 890</span>
               </a>
               <div class="flex flex-col gap-4">
-                <a
-                  href="/login"
-                  onClick={() => setMobileOpen(false)}
-                  class="btn btn-outline hover:bg-base-200 text-base-content border-base-content/30 btn-md md:btn-lg w-full font-bold focus-visible:ring-2 ring-primary outline-none"
-                >
-                  Log in
-                </a>
+                <AuthButton
+                  variant="mobile"
+                  className="hidden md:flex"
+                />
                 <a
                   href="/contact"
                   onClick={() => setMobileOpen(false)}

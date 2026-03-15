@@ -88,11 +88,7 @@ const normalizedPath =
 
       {/* Cross-Device CTA & Mobile Toggle Wrapper (Symmetrical Balance) */}
       <div class="navbar-end w-auto flex-1 gap-4 justify-end">
-        <AuthButton
-          client:load
-          variant="desktop"
-          className="hidden lg:flex"
-        />
+        <AuthButton client:load variant="desktop" className="hidden lg:flex" />
         {/* Vital CTA always visible on Desktop */}
         <a
           href="/contact"

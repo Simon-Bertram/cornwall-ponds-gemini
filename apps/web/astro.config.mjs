@@ -46,9 +46,6 @@ export default defineConfig({
         "lightningcss",
       ],
     },
-    ssr: {
-      external: ["picomatch"],
-    },
   },
 
   integrations: [

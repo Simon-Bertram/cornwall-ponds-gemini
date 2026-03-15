@@ -3,8 +3,8 @@ import { experimental_AstroContainer as AstroContainer } from 'astro/container'
 import { loadRenderers } from 'astro:container'
 import { JSDOM } from 'jsdom'
 import { afterEach, beforeAll, describe, expect, it } from 'vitest'
-import Header from '../Header.astro'
-import { navLinks } from '../../config/nav'
+import Header from '../../src/components/Header.astro'
+import { navLinks } from '../../src/config/nav'
 
 function parseHtml(html: string): Document {
 	return new JSDOM(html).window.document

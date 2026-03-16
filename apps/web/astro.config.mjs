@@ -1,6 +1,6 @@
 // @ts-check
 import tailwindcss from "@tailwindcss/vite";
-import cloudflare from "@astrojs/cloudflare";
+import alchemy from "alchemy/cloudflare/astro";
 import node from "@astrojs/node";
 import { defineConfig, envField } from "astro/config";
 
@@ -20,12 +20,7 @@ export default defineConfig({
     ? node({ mode: "standalone" })
     : isDev
       ? node({ mode: "standalone" })
-      : cloudflare(),
-
-  build: {
-    client: "./",
-    server: "./_worker.js",
-  },
+      : alchemy(),
 
   env: {
     schema: {

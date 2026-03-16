@@ -22,6 +22,11 @@ export default defineConfig({
       ? node({ mode: "standalone" })
       : cloudflare(),
 
+  build: {
+    client: "./",
+    server: "./_worker.js",
+  },
+
   env: {
     schema: {
       PUBLIC_SERVER_URL: envField.string({

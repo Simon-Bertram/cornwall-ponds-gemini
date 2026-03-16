@@ -1,6 +1,6 @@
 // @ts-check
 import tailwindcss from "@tailwindcss/vite";
-import alchemy from "alchemy/cloudflare/astro";
+import cloudflare from "@astrojs/cloudflare";
 import node from "@astrojs/node";
 import { defineConfig, envField } from "astro/config";
 
@@ -20,7 +20,7 @@ export default defineConfig({
     ? node({ mode: "standalone" })
     : isDev
       ? node({ mode: "standalone" })
-      : alchemy(),
+      : cloudflare(),
 
   env: {
     schema: {
@@ -40,11 +40,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     optimizeDeps: {
-      exclude: [
-        "virtual:keystatic-config",
-        "picomatch",
-        "lightningcss",
-      ],
+      exclude: ["virtual:keystatic-config", "picomatch", "lightningcss"],
     },
   },
 

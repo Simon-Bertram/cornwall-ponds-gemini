@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "ALCHEMY_CI_STATE_STORE_CHECK=false alchemy dev",
-    "deploy": "node run-deploy.mjs",
+    "deploy": "ALCHEMY_CI_STATE_STORE_CHECK=false node run-deploy.mjs",
     "destroy": "alchemy destroy",
     "test": "vitest run",
     "test:watch": "vitest"

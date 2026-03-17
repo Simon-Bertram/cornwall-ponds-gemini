@@ -1,5 +1,4 @@
 import alchemy from "alchemy";
-import { Astro } from "alchemy/cloudflare";
 import { Worker } from "alchemy/cloudflare";
 import { D1Database } from "alchemy/cloudflare";
 import { config } from "dotenv";
@@ -21,9 +20,12 @@ const db = await D1Database("database", {
   migrationsDir: "../../packages/db/src/migrations",
 });
 
-// 4. Provision the Astro website (Frontend) and bind the server URL so the frontend knows where the API is
-export const web = await Astro("web", {
+// 4. Provision the Astro website (Frontend) as a Cloudflare Worker,
+//    pointing directly to the built Worker entry produced by `astro build` in apps/web.
+export const web = await Worker("web", {
   cwd: "../../apps/web",
+  entrypoint: "dist/server/entry.mjs",
+  compatibility: "node",
   bindings: {
     PUBLIC_SERVER_URL: alchemy.env.PUBLIC_SERVER_URL!,
   },

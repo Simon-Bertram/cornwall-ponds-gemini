@@ -2,6 +2,7 @@
 import tailwindcss from "@tailwindcss/vite";
 import alchemy from "alchemy/cloudflare/astro";
 import node from "@astrojs/node";
+import cloudflare from "@astrojs/cloudflare";
 import { defineConfig, envField } from "astro/config";
 
 import preact from "@astrojs/preact";

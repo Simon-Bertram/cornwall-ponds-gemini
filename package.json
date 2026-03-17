@@ -29,7 +29,9 @@
     "db:push": "turbo -F @cornwall-ponds-gemini/db db:push",
     "db:generate": "turbo -F @cornwall-ponds-gemini/db db:generate",
     "deploy": "turbo -F @cornwall-ponds-gemini/infra deploy",
-    "destroy": "turbo -F @cornwall-ponds-gemini/infra destroy"
+    "destroy": "turbo -F @cornwall-ponds-gemini/infra destroy",
+    "test": "turbo run test",
+    "test:infra": "turbo run test -F @cornwall-ponds-gemini/infra"
   },
   "dependencies": {
     "@cornwall-ponds-gemini/env": "workspace:*",

@@ -143,6 +143,7 @@
         "@cornwall-ponds-gemini/config": "workspace:*",
         "alchemy": "catalog:",
         "typescript": "catalog:",
+        "vitest": "^4.1.0",
       },
     },
   },

@@ -1,0 +1,7 @@
+{
+  "extends": "@cornwall-ponds-gemini/config/tsconfig.base.json",
+  "compilerOptions": {
+    "types": ["node", "@cloudflare/workers-types", "vitest"]
+  },
+  "include": ["*.ts", "*.mjs", "test/**/*.ts"]
+}

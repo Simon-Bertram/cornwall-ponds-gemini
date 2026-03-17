@@ -1,14 +1,20 @@
-## Cornwall Ponds Frontend Worker Deployment Incident Report
+## Frontend Worker Deployment Incident Report
 
 ### 1. Problem summary
 
-- **Symptom**: The production frontend URL  
+- **Initial symptom**: The production frontend URL  
   `https://cornwall-ponds-gemini-web-node.simonbertram.workers.dev/`  
-  consistently returns a plain `Not Found` response (HTTP 404) instead of the Astro site.
+  consistently returned a plain `Not Found` response (HTTP 404) instead of the Astro site.
+- **Current symptom (after Worker fixes)**: The same URL now renders the Astro HTML (including the “Skip to main content” link and the phone number) but **styling is broken**:
+  - Tailwind/DaisyUI styles are not applied.
+  - Browser console shows CSS parsing warnings for `/_astro/Layout.*.css` such as  
+    `Unknown descriptor 'font-named-instance' in @font-face rule` and  
+    `Selector expected. Ruleset ignored due to bad selector. Layout.ywuUC9co.css:1:1`,  
+    indicating the CSS is being fetched but not parsed as valid CSS.
 - **Backend status**: The API Worker at  
   `https://cornwall-ponds-gemini-server-node.simonbertram.workers.dev/`  
   responds with `ok`, indicating the server Worker and D1 bindings are healthy.
-- **Key fact**: In the Cloudflare dashboard, the `web` Worker’s code is a tiny stub:
+- **Original key fact**: In the Cloudflare dashboard, the `web` Worker’s code was a tiny stub:
 
 ```js
 export default {
@@ -22,13 +28,24 @@ even after successful Alchemy deploys.
 
 ### 2. Relevant implementation details
 
-- **Infra definition** (`packages/infra/alchemy.run.ts`):
+- **Infra definition** (`packages/infra/alchemy.run.ts`) – original vs. current:
 
 ```ts
 const app = await alchemy("cornwall-ponds-gemini");
 
-export const web = await Astro("web", {
+// ORIGINAL (via Astro helper)
+// export const web = await Astro("web", {
+//   cwd: "../../apps/web",
+//   bindings: {
+//     PUBLIC_SERVER_URL: alchemy.env.PUBLIC_SERVER_URL!,
+//   },
+// });
+
+// CURRENT (explicit Worker entrypoint)
+export const web = await Worker("web", {
   cwd: "../../apps/web",
+  entrypoint: "dist/server/entry.mjs",
+  compatibility: "node",
   bindings: {
     PUBLIC_SERVER_URL: alchemy.env.PUBLIC_SERVER_URL!,
   },
@@ -101,12 +118,10 @@ globalThis.process ??= {};
 globalThis.process.env ??= {};
 import "cloudflare:workers";
 import { B } from "./chunks/worker-entry_*.mjs";
-export {
-  B as default
-};
+export { B as default };
 ```
 
-  - `apps/web/dist/server/wrangler.json` has `"main": "entry.mjs"`.
+- `apps/web/dist/server/wrangler.json` has `"main": "entry.mjs"`.
 
 ### 3. Debugging steps performed
 
@@ -227,7 +242,7 @@ These cannot be verified or fixed from this repo alone; they require visibility 
 - Without:
   - Direct access to the Cloudflare account’s full Worker/project list and routes, and
   - Insight into Alchemy’s internal handling of `Astro("web", ...)` deployments and adoption behavior,
-  any further “fixes” here would be guesswork rather than evidence-based.
+    any further “fixes” here would be guesswork rather than evidence-based.
 
 ### 7. Next steps / escalation
 
@@ -251,4 +266,3 @@ With these, Alchemy/Cloudflare support can:
 - Verify whether the `web` Worker name collides with any other project.
 - Inspect the actual script versions and deployment history for that Worker.
 - Confirm whether `Astro("web", ...)` is correctly pushing the new bundle or only updating bindings/routes.
-
